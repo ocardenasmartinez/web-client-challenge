@@ -11,7 +11,7 @@
     <div class="form-group">
       <label for="birthday">Birthday</label>
       <div class="input-group">
-        <input class="form-control" placeholder="Birthday" name="birthday" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+        <input class="form-control" placeholder="Birthday" name="birthday" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" dateFormat="dd/MM/yyyy">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
         </div>

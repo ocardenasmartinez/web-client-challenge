@@ -12,7 +12,7 @@ export class UserComponent {
   constructor(private apiService: ApiService) {}
 
   onClickSubmit(data) {
-    console.log(this.apiService.postUser({
+    this.apiService.postUser({
       name: "Octavio",
       lastname: "Cárdenas",
       birthdate: "09/01/2019",
@@ -20,6 +20,8 @@ export class UserComponent {
       address: "address 1",
       email: "ocardenas@subtel.cl",
       country: "Chile"
-    }));
+    }).subscribe(data => {
+      console.log(data);
+    })
   }
 }

@@ -49,4 +49,9 @@ export class UserComponent implements OnInit {
     })
   }
 
+  onClick(element){
+    this.submitted = false;
+    this.registerForm.reset();
+  }
+
 }

@@ -12,22 +12,20 @@ const url = 'http://localhost:9001/saveuser';
 
 @Injectable({providedIn: 'root'})
 export class ApiService {
-
   constructor(private httpClient: HttpClient) {}
 
-  postUser(data): Observable<Status> {
+  public postUser(data): Observable<Status> {
     return this.httpClient.post<Status>(url, JSON.stringify(data), httpOptions)
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  handleError(error) {
+  private handleError(error) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
      errorMessage = error.error.message;
     } else {
      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(errorMessage);
     return throwError(errorMessage);
   }
 

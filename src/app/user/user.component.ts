@@ -9,12 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
   registerForm: FormGroup;
   submitted = false;
 
-  constructor
-    (private apiService: ApiService,
+  constructor(
+    private apiService: ApiService,
     private formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -32,10 +31,8 @@ export class UserComponent implements OnInit {
   get f() { return this.registerForm.controls; }
 
   onClickSubmit(data) {
-
     this.submitted = true;
     if (this.registerForm.invalid) return false;
-
     this.apiService.postUser({
       name: data.name,
       lastname: data.lastName,
@@ -46,7 +43,7 @@ export class UserComponent implements OnInit {
       country: data.country
     }).subscribe(data => {
       console.log(data);
-    })
+    });
   }
 
   onClick(element){
